@@ -26,15 +26,17 @@
             <div class="gallery__area bg-style">
                 <div class="gallery__content">
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
-                            <form enctype="multipart/form-data" method="POST" action="{{ route('admin.product.store') }}">
+                        <div class="tab-pane fade show active" id="nav-one" role="tabpanel"
+                             aria-labelledby="nav-one-tab">
+                            <form enctype="multipart/form-data" method="POST"
+                                  action="{{ route('admin.product.store') }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-vertical__item bg-style">
-                                            <div class="item-top mb-30">
-                                                <h2>{{ langString('en', false) . ':' }}</h2>
-                                            </div>
+                                            {{--                                            <div class="item-top mb-30">--}}
+                                            {{--                                                <h2>{{ langString('en', false) . ':' }}</h2>--}}
+                                            {{--                                            </div>--}}
                                             <input type="hidden" name="product_type" value="{{ PRODUCT_PHYSICAL }}">
                                             <div class="input__group mb-25">
                                                 <label for="en-product-name">{{ __('Product Name') }}</label>
@@ -68,7 +70,8 @@
                                             </div>
                                             <div class="input__group mb-25">
                                                 <label for="exampleInputEmail1">{{ __('Category Name') }}</label>
-                                                <select class="form-control" id="en_category_name" name="en_category_name">
+                                                <select class="form-control" id="en_category_name"
+                                                        name="en_category_name">
                                                     @foreach ($category as $item)
                                                         <option value="{{ $item->id }}">
                                                             {{ $item->en_Category_Name }}
@@ -94,7 +97,8 @@
 
                                             <div class="input__group mb-25">
                                                 <label for="select2Multiple">{{ __('Product Tag') }}</label>
-                                                <select class="select2-multiple form-control tag_two" name="product_tag[]"
+                                                <select class="select2-multiple form-control tag_two"
+                                                        name="product_tag[]"
                                                         multiple="multiple">
                                                     @foreach ($tags as $tag)
                                                         <option value="{{ $tag->name }}">{{ $tag->name }}</option>
@@ -134,7 +138,7 @@
                                             <div class="input__group mb-25">
                                                 <label for="qty">{{ __('Quantity') }}</label>
                                                 <input type="text" class="form-control" id="qty" name="qty"
-                                                       value="{{ old('qty') }}" placeholder="Quantity">
+                                                       value="{{ old('qty') }}">
                                                 @error('qty')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -142,7 +146,7 @@
                                             <div class="input__group mb-25">
                                                 <label for="price">{{ __('Price') }}</label>
                                                 <input type="number" min="0" class="form-control" id="price"
-                                                       name="price" value="{{ old('price') }}" placeholder="Price">
+                                                       name="price" value="{{ old('price') }}">
                                                 @error('price')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -151,7 +155,7 @@
                                                 <label for="discount">{{ __('Discount (in Percentage)') }}</label>
                                                 <input type="number" class="form-control" id="discount"
                                                        name="discount" value="{{ old('discount') ?? 0 }}"
-                                                       placeholder="Discount">
+                                                >
                                                 @error('discount')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -159,7 +163,8 @@
                                             <div class="input__group mb-25">
                                                 <label for="discount_price">{{ __('Discount Price') }}</label>
                                                 <input type="number" class="form-control" id="discount_price"
-                                                       name="discount_price" value="{{ old('discount_price') }}" readonly>
+                                                       name="discount_price" value="{{ old('discount_price') }}"
+                                                       readonly>
                                                 @error('discount_price')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -167,7 +172,8 @@
 
                                             <div class="input__group mb-25">
                                                 <label for="en_about">{{ __('About') }}</label>
-                                                <textarea name="en_about" id="en_about" class="form-control" placeholder="About">{{ old('en_about') }}</textarea>
+                                                <textarea name="en_about" id="en_about" class="form-control"
+                                                >{{ old('en_about') }}</textarea>
                                                 @error('en_about')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -175,7 +181,8 @@
 
                                             <div class="input__group mb-25">
                                                 <label for="en_description">{{ __('Description') }}</label>
-                                                <textarea name="en_description" id="summernote" class="form-control" placeholder="Description">{{ old('en_description') }}</textarea>
+                                                <textarea name="en_description" id="summernote" class="form-control"
+                                                >{{ old('en_description') }}</textarea>
                                                 @error('en_description')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -183,7 +190,8 @@
 
                                             <div class="input__group mb-25">
                                                 <label for="en_shippingreturn">{{ __('Shipping Return') }}</label>
-                                                <textarea name="en_shippingreturn" id="summernote2" class="form-control" placeholder="Shipping Return">{{ old('en_shippingreturn') }}</textarea>
+                                                <textarea name="en_shippingreturn" id="summernote2" class="form-control"
+                                                >{{ old('en_shippingreturn') }}</textarea>
                                                 @error('en_shippingreturn')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -191,7 +199,8 @@
                                             <div class="input__group mb-25">
                                                 <label
                                                     for="en_additionalinformation">{{ __('Additional Information') }}</label>
-                                                <textarea name="en_additionalinformation" id="summernote3" class="form-control">{{ old('en_additionalinformation') }}</textarea>
+                                                <textarea name="en_additionalinformation" id="summernote3"
+                                                          class="form-control">{{ old('en_additionalinformation') }}</textarea>
                                                 @error('en_additionalinformation')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -200,7 +209,7 @@
                                                 <label for="primary_image">{{ __('Primary Image') }}</label>
                                                 <input type="file" class="form-control putImage1" name="primary_image"
                                                        id="primary_image">
-                                                <img src="" id="target1" />
+                                                <img src="" id="target1"/>
                                                 @error('primary_image')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -209,7 +218,7 @@
                                                 <label for="image_two">{{ __('Image 2') }}</label>
                                                 <input type="file" class="form-control putImage2" name="image_two"
                                                        id="image_two">
-                                                <img src="" id="target2" />
+                                                <img src="" id="target2"/>
                                                 @error('image_two')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -218,7 +227,7 @@
                                                 <label for="image_three">{{ __('Image 3') }}</label>
                                                 <input type="file" class="form-control putImage3" name="image_three"
                                                        id="image_three">
-                                                <img src="" id="target3" />
+                                                <img src="" id="target3"/>
                                                 @error('image_three')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -227,7 +236,7 @@
                                                 <label for="image_four">{{ __('Image 4') }}</label>
                                                 <input type="file" class="form-control putImage4" name="image_four"
                                                        id="image_four">
-                                                <img src="" id="target4" />
+                                                <img src="" id="target4"/>
                                                 @error('image_four')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -236,7 +245,7 @@
                                                 <label for="image_five">{{ __('Image 5') }}</label>
                                                 <input type="file" class="form-control putImage5" name="image_five"
                                                        id="image_five">
-                                                <img src="" id="target5" />
+                                                <img src="" id="target5"/>
                                                 @error('image_five')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -302,62 +311,66 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-vertical__item bg-style">
-                                            <div class="item-top mb-30">
-                                                <h2>{{ langString('fr', false) . ':' }}</h2>
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label for="fr-product-name">{{ __('Product Name') }}</label>
-                                                <input type="text" class="form-control" id="fr-product-name"
-                                                       name="fr_product_name" value="{{ old('fr_product_name') }}"
-                                                       placeholder="{{ __('Name') }}">
-                                                @error('fr_product_name')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label for="fr-product-slug">{{ __('Product Slug') }}</label>
-                                                <input type="text" class="form-control" id="fr-product-slug"
-                                                       name="fr_product_slug" value="{{ old('fr_product_slug') }}"
-                                                       placeholder="{{ __('Slug') }}">
-                                                @error('fr_product_slug')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label for="fr_about">{{ __('About') }}</label>
-                                                <textarea name="fr_about" id="fr_about" class="form-control" placeholder="About">{{ old('fr_about') }}</textarea>
-                                                @error('fr_about')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label for="fr_description">{{ __('Description') }}</label>
-                                                <textarea name="fr_description" id="summernote4" class="form-control">{{ old('fr_description') }}</textarea>
-                                                @error('fr_description')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="form-vertical__item bg-style">--}}
+                                    {{--                                            <div class="item-top mb-30">--}}
+                                    {{--                                                <h2>{{ langString('fr', false) . ':' }}</h2>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label for="fr-product-name">{{ __('Product Name') }}</label>--}}
+                                    {{--                                                <input type="text" class="form-control" id="fr-product-name"--}}
+                                    {{--                                                       name="fr_product_name" value="{{ old('fr_product_name') }}"--}}
+                                    {{--                                                       placeholder="{{ __('Name') }}">--}}
+                                    {{--                                                @error('fr_product_name')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label for="fr-product-slug">{{ __('Product Slug') }}</label>--}}
+                                    {{--                                                <input type="text" class="form-control" id="fr-product-slug"--}}
+                                    {{--                                                       name="fr_product_slug" value="{{ old('fr_product_slug') }}"--}}
+                                    {{--                                                       placeholder="{{ __('Slug') }}">--}}
+                                    {{--                                                @error('fr_product_slug')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label for="fr_about">{{ __('About') }}</label>--}}
+                                    {{--                                                <textarea name="fr_about" id="fr_about" class="form-control"--}}
+                                    {{--                                                          placeholder="About">{{ old('fr_about') }}</textarea>--}}
+                                    {{--                                                @error('fr_about')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label for="fr_description">{{ __('Description') }}</label>--}}
+                                    {{--                                                <textarea name="fr_description" id="summernote4"--}}
+                                    {{--                                                          class="form-control">{{ old('fr_description') }}</textarea>--}}
+                                    {{--                                                @error('fr_description')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
 
-                                            <div class="input__group mb-25">
-                                                <label for="fr_shippingreturn">{{ __('ShippingReturn') }}</label>
-                                                <textarea name="fr_shippingreturn" id="summernote5" class="form-control">{{ old('fr_shippingreturn') }}</textarea>
-                                                @error('fr_shippingreturn')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label
-                                                    for="fr_additionalinformation">{{ __('AdditionalInformation') }}</label>
-                                                <textarea name="fr_additionalinformation" id="summernote6" class="form-control">{{ old('fr_additionalinformation') }}</textarea>
-                                                @error('fr_additionalinformation')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label for="fr_shippingreturn">{{ __('ShippingReturn') }}</label>--}}
+                                    {{--                                                <textarea name="fr_shippingreturn" id="summernote5"--}}
+                                    {{--                                                          class="form-control">{{ old('fr_shippingreturn') }}</textarea>--}}
+                                    {{--                                                @error('fr_shippingreturn')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="input__group mb-25">--}}
+                                    {{--                                                <label--}}
+                                    {{--                                                    for="fr_additionalinformation">{{ __('AdditionalInformation') }}</label>--}}
+                                    {{--                                                <textarea name="fr_additionalinformation" id="summernote6"--}}
+                                    {{--                                                          class="form-control">{{ old('fr_additionalinformation') }}</textarea>--}}
+                                    {{--                                                @error('fr_additionalinformation')--}}
+                                    {{--                                                <span class="text-danger">{{ $message }}</span>--}}
+                                    {{--                                                @enderror--}}
+                                    {{--                                            </div>--}}
 
-                                        </div>
-                                    </div>
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
                                 </div>
                             </form>
                         </div>
@@ -373,46 +386,40 @@
     <script src="{{ asset('backend/js/admin/products/physical-add.js') }}"></script>
     <script>
         "use strict";
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote").summernote({
-                placeholder: 'Description',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();
         });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote2").summernote({
-                placeholder: 'Shipping Return',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote3").summernote({
-                placeholder: 'Additional Information',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote4").summernote({
-                placeholder: 'Description',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();
         });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote5").summernote({
-                placeholder: 'Shipping Return',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote6").summernote({
-                placeholder: 'Additional Information',
                 height: 300
             });
             $('.dropdown-toggle').dropdown();

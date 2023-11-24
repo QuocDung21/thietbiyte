@@ -80,7 +80,7 @@
                 </a>
                 <ul>
                     <li class="{{ isset($submenu) && $submenu == 'product' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.product.create') }}">
+                        <a href="{{ route('admin.physical.product.create') }}">
                             <i class="fa fa-circle"></i>
                             <span>{{ __('Add Product') }}</span>
                         </a>

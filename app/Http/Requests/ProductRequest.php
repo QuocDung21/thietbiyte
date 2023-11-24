@@ -32,14 +32,14 @@ class ProductRequest extends FormRequest
             'discount_price' => 'required',
             'primary_image' => 'required',
             'en_about' => 'required',
-            'fr_about' => 'required',
+//            'fr_about' => 'required',
             'en_description' => 'required',
             'en_shippingreturn' => 'required',
             'en_additionalinformation' => 'required',
-            'fr_product_name' => 'required',
-            'fr_description' => 'required',
-            'fr_shippingreturn' => 'required',
-            'fr_additionalinformation' => 'required',
+//            'fr_product_name' => 'required',
+//            'fr_description' => 'required',
+//            'fr_shippingreturn' => 'required',
+//            'fr_additionalinformation' => 'required',
         ];
     }
 

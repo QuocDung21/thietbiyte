@@ -91,6 +91,7 @@ class ProductController extends Controller
         $data['title'] = __('Product List');
         return view('admin.pages.product.index', $data);
     }
+
     public function productCreate()
     {
         $data['title'] = __('Product Create');
@@ -100,6 +101,7 @@ class ProductController extends Controller
         $data['item_tags'] = ItemTag::get();
         return view('admin.pages.product.create', $data);
     }
+
     public function physicalProductCreate()
     {
         $data['title'] = __('Physical Product Create');
@@ -109,6 +111,7 @@ class ProductController extends Controller
         $data['item_tags'] = ItemTag::get();
         return view('admin.pages.product.physical', $data);
     }
+
     public function digitalProductCreate()
     {
         $data['title'] = __('Digital Product Create');
@@ -117,6 +120,7 @@ class ProductController extends Controller
         $data['item_tags'] = ItemTag::get();
         return view('admin.pages.product.digital', $data);
     }
+
     public function licenseProductCreate()
     {
         $data['title'] = __('License Product Create');
@@ -126,6 +130,7 @@ class ProductController extends Controller
         $data['item_tags'] = ItemTag::get();
         return view('admin.pages.product.license', $data);
     }
+
     public function affiliateProductCreate()
     {
         $data['title'] = __('Affiliate Product Create');
@@ -231,7 +236,7 @@ class ProductController extends Controller
 
     public function physicalProductAdd($data)
     {
-        $result  = ['success' => false];
+        $result = ['success' => false];
         $product = Product::create([
             'en_Product_Name' => $data['en_product_name'],
             'en_Product_Slug' => $data['en_product_slug'],
@@ -244,12 +249,14 @@ class ProductController extends Controller
             'en_Description' => $data['en_description'],
             'en_ShippingReturn' => $data['en_shippingreturn'],
             'en_AdditionalInformation' => $data['en_additionalinformation'],
-            'fr_Product_Name' => $data['fr_product_name'],
-            'fr_Product_Slug' => $data['fr_product_slug'],
-            'fr_About' => $data['fr_about'],
-            'fr_Description' => $data['fr_description'],
-            'fr_ShippingReturn' => $data['fr_shippingreturn'],
-            'fr_AdditionalInformation' => $data['fr_additionalinformation'],
+
+            'fr_Product_Name' => $data['en_product_name'],
+            'fr_Product_Slug' => $data['en_product_name'],
+            'fr_About' => $data['en_product_name'],
+            'fr_Description' => $data['en_product_name'],
+            'fr_ShippingReturn' => $data['en_product_name'],
+            'fr_AdditionalInformation' => $data['en_product_name'],
+
             'Quantity' => $data['qty'] ?? 0,
             'ItemTag' => $data['item_teg'],
             'Primary_Image' => $data['primary_image'],
@@ -290,7 +297,7 @@ class ProductController extends Controller
 
     public function digitalProductAdd($data)
     {
-        $result  = ['success' => false];
+        $result = ['success' => false];
         $product = Product::create([
             'en_Product_Name' => $data['en_product_name'],
             'en_Product_Slug' => $data['en_product_slug'],
@@ -344,7 +351,7 @@ class ProductController extends Controller
 
     public function licenseProductAdd($data)
     {
-        $result  = ['success' => false];
+        $result = ['success' => false];
         $product = Product::create([
             'en_Product_Name' => $data['en_product_name'],
             'en_Product_Slug' => $data['en_product_slug'],
@@ -399,7 +406,7 @@ class ProductController extends Controller
 
     public function affiliateProductAdd($data)
     {
-        $result  = ['success' => false];
+        $result = ['success' => false];
         $product = Product::create([
             'en_Product_Name' => $data['en_product_name'],
             'en_Product_Slug' => $data['en_product_slug'],
@@ -461,6 +468,7 @@ class ProductController extends Controller
         }
         return redirect()->route('admin.product')->with('error', __('Does Not Delete!'));
     }
+
     public function productActive($id)
     {
         $inactive = Product::find($id)->update(['Status' => 1]);
@@ -469,6 +477,7 @@ class ProductController extends Controller
         }
         return redirect()->route('admin.product')->with('success', __('Does not Updated !'));
     }
+
     public function productInactive($id)
     {
         $inactive = Product::find($id)->update(['Status' => 0]);
@@ -846,7 +855,7 @@ class ProductController extends Controller
         return $text;
     }
 
-    public  function generateRandomString($length = 20)
+    public function generateRandomString($length = 20)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
