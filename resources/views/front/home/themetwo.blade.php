@@ -14,7 +14,7 @@
                                 </p>
                                 <div class="hero-btn">
                                     <a href="{{ route('all.product') }}"
-                                        class="secondary-btn">{{ langConverter($sliders->first()->en_Button_Text, $sliders->first()->fr_Button_Text) }}
+                                       class="secondary-btn">{{ langConverter($sliders->first()->en_Button_Text, $sliders->first()->fr_Button_Text) }}
                                         <i class="iocn flaticon-right-arrow"></i></a>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
                         <div class="col-lg-6 col-md-6 col-5">
                             <div class="hero-banner-image text-center">
                                 <img class="hero-image" src="{{ asset(BannerImage() . $banner->image) }}"
-                                    alt="{{ langConverter($banner->en_title, $banner->fr_title) }}" />
+                                     alt="{{ langConverter($banner->en_title, $banner->fr_title) }}"/>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                 @foreach ($brands as $brand)
                     <div class="sigle-brad">
                         <img src="{{ asset(BrandImage() . $brand->BrandImage) }}"
-                            alt="{{ langConverter($brand->en_BrandName, $brand->fr_BrandName) }}" />
+                             alt="{{ langConverter($brand->en_BrandName, $brand->fr_BrandName) }}"/>
                     </div>
                 @endforeach
             </div>
@@ -81,7 +81,7 @@
 
 <!-- featured-products-area-v2 start here  -->
 @if ($allsettings['featured_items'] == ACTIVE)
-    <div class="featured-products-area-v2 section-bg-two section-top pb-100">
+    <div style="background-color: white" class="featured-products-area-v2 section-bg-two section-top pb-100">
         <div class="container">
             <div class="section-header-two text-center">
                 <h2 class="section-title">{{ __('Sản phẩm nổi bật') }}</h2>
@@ -91,10 +91,13 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-grid-product-v2">
                             <div class="product-top">
-                                <a href="{{ route('single.product', $product->en_Product_Slug) }}"><img
+                                <a href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                    <img
                                         class="product-thumbnal"
+                                        style="object-fit: cover;width: 250px;height: 250px"
                                         src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                        alt="product" /></a>
+                                        alt="product"/>
+                                </a>
                                 <div class="product-flags">
                                     @if ($product->ItemTag)
                                         <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -107,11 +110,11 @@
                                 <ul class="prdouct-btn-wrapper">
                                     <li class="single-product-btn">
                                         <a class="product-btn CompareList" data-id="{{ $product->id }}"
-                                            title="Add to compare"><i class="icon flaticon-bar-chart"></i></a>
+                                           title="Add to compare"><i class="icon flaticon-bar-chart"></i></a>
                                     </li>
                                     <li class="single-product-btn">
                                         <a class="product-btn MyWishList" data-id="{{ $product->id }}"
-                                            title="Add to wishlist"><i class="icon flaticon-like"></i></a>
+                                           title="Add to wishlist"><i class="icon flaticon-like"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -120,10 +123,11 @@
                                     <h4 class="product-catagory">{{ $pptf->tag }}</h4>
                                 @endforeach
                                 <input type="hidden" name="quantity" value="1" id="product_quantity">
-                                <h3 class="product-name"><a class="product-link"
-                                        href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
-                                </h3>
-                                <!-- This is server side code. User can not modify it. -->
+                                    <h3 style="max-width: 350px; text-align: center; display: flex; justify-content: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="product-name">
+                                        <a class="product-link" href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                            {{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}
+                                        </a>
+                                    </h3>
                                 {!! productReview($product->id) !!}
                                 <div class="product-price">
                                     <span class="regular-price">
@@ -132,7 +136,7 @@
                                         {{ currencyConverter($product->Discount_Price) }}</span>
                                 </div>
                                 <a href="javascript:void(0)" title="{{ __('Add To Cart') }}" class="add-cart addCart"
-                                    data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                   data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                         class="icon fas fa-plus-circle"></i></a>
                             </div>
                         </div>
@@ -150,14 +154,14 @@
         <div class="container">
             <div class="spectial-offer-wrap">
                 <img class="line-shape-one" src="{{ asset('frontend') }}/assets/images/line-shape-one.png"
-                    alt="shape" />
+                     alt="shape"/>
                 <img class="line-shape-two" src="{{ asset('frontend') }}/assets/images/line-shape-two.png"
-                    alt="shape" />
+                     alt="shape"/>
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="offer-image">
                             <img class="thumbnail-image" src="{{ asset(offerImage() . SpecialOffer()->image) }}"
-                                alt="offer-image" />
+                                 alt="offer-image"/>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -183,39 +187,41 @@
     <div class="container">
         <div class="section-header-two text-center">
             <h2 class="section-title">{{ __('Sản phẩm thịnh hành') }}</h2>
-            <!-- Tab panel nav list -->
             <div class="secendary-tabs mt-40 ">
                 <ul class="nav nav-tabs tab-nav-list border-0" id="myTab" role="tablist">
                     @if ($allsettings['new_arrival'] == ACTIVE)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $allsettings['new_arrival'] == ACTIVE ? 'active' : '' }}"
-                                id="NEWARRIVAL-tab" data-bs-toggle="tab" type="button" href="#NEWARRIVAL"
-                                role="tab" aria-controls="NEWARRIVAL"
-                                aria-selected="true">{{ __('NEW ARRIVAL') }}</a>
+                            <a style="text-transform: uppercase"
+                               class="nav-link {{ $allsettings['new_arrival'] == ACTIVE ? 'active' : '' }}"
+                               id="NEWARRIVAL-tab" data-bs-toggle="tab" type="button" href="#NEWARRIVAL"
+                               role="tab" aria-controls="NEWARRIVAL"
+                               aria-selected="true">{{ __('NEW ARRIVAL') }}</a>
                         </li>
                     @endif
 
                     @if ($allsettings['best_selling'] == ACTIVE)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == ACTIVE ? 'active' : '' }}"
-                                id="BESTSELLING-tab" data-bs-toggle="tab" href="#BESTSELLING" role="tab"
-                                aria-controls="BESTSELLING" aria-selected="false">{{ __('BEST SELLING') }}</a>
+                            <a style="text-transform: uppercase"
+                               class="nav-link {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == ACTIVE ? 'active' : '' }}"
+                               id="BESTSELLING-tab" data-bs-toggle="tab" href="#BESTSELLING" role="tab"
+                               aria-controls="BESTSELLING" aria-selected="false">{{ __('BEST SELLING') }}</a>
                         </li>
                     @endif
 
                     @if ($allsettings['on_sale'] == ACTIVE)
                         <li class="nav-item" role="ONSELL">
-                            <a class="nav-link  {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == ACTIVE ? 'active' : '' }}"
-                                id="ONSELL-tab" data-bs-toggle="tab" href="#ONSELL" role="tab"
-                                aria-controls="ONSELL" aria-selected="false">{{ __('ON SALE') }}</a>
+                            <a style="text-transform: uppercase"
+                               class="nav-link  {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == ACTIVE ? 'active' : '' }}"
+                               id="ONSELL-tab" data-bs-toggle="tab" href="#ONSELL" role="tab"
+                               aria-controls="ONSELL" aria-selected="false">{{ __('ON SALE') }}</a>
                         </li>
                     @endif
 
                     @if ($allsettings['featured_items'] == ACTIVE)
                         <li class="nav-item" role="FEATUREDITEMS">
                             <a class="nav-link {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == INACTIVE && $allsettings['featured_items'] == ACTIVE ? 'active' : '' }}"
-                                id="FEATUREDITEMS-tab" data-bs-toggle="tab" href="#FEATUREDITEMS" role="tab"
-                                aria-controls="FEATUREDITEMS" aria-selected="false">{{ __('FEATURED ITEMS') }}</a>
+                               id="FEATUREDITEMS-tab" data-bs-toggle="tab" href="#FEATUREDITEMS" role="tab"
+                               aria-controls="FEATUREDITEMS" aria-selected="false">{{ __('FEATURED ITEMS') }}</a>
                         </li>
                     @endif
                 </ul>
@@ -225,15 +231,16 @@
         <div class="tab-content" id="FeaturedProductsTabContent">
             @if ($allsettings['new_arrival'] == ACTIVE)
                 <div class="tab-pane fade {{ $allsettings['new_arrival'] == ACTIVE ? 'show active' : '' }}"
-                    id="NEWARRIVAL" role="tabpanel" aria-labelledby="NEWARRIVAL-tab">
+                     id="NEWARRIVAL" role="tabpanel" aria-labelledby="NEWARRIVAL-tab">
                     <div class="recommend-product-slide owl-carousel owl-theme">
                         @foreach ($new_arrivals as $product)
                             <div class="single-grid-product-v2">
                                 <div class="product-top">
                                     <a href="{{ route('single.product', $product->en_Product_Slug) }}"><img
                                             class="product-thumbnal"
+                                            style="object-fit: cover;height: 250px;width: 250px;"
                                             src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                            alt="{{ __('product') }}" /></a>
+                                            alt="{{ __('product') }}"/></a>
                                     <div class="product-flags">
                                         @if ($product->ItemTag)
                                             <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -246,14 +253,14 @@
                                     <ul class="prdouct-btn-wrapper">
                                         <li class="single-product-btn">
                                             <a class="product-btn CompareList"
-                                                data-id="{{ $product->id }}"
-                                                title="{{ __('Add To Compare') }}"><i
+                                               data-id="{{ $product->id }}"
+                                               title="{{ __('Add To Compare') }}"><i
                                                     class="icon flaticon-bar-chart"></i></a>
                                         </li>
                                         <li class="single-product-btn">
                                             <a class="product-btn MyWishList"
-                                                data-id="{{ $product->id }}"
-                                                title="{{ __('Add To Wishlist') }}"><i
+                                               data-id="{{ $product->id }}"
+                                               title="{{ __('Add To Wishlist') }}"><i
                                                     class="icon flaticon-like"></i></a>
                                         </li>
                                     </ul>
@@ -263,10 +270,13 @@
                                         <h4 class="product-catagory">{{ $pptn->tag }}</h4>
                                     @endforeach
                                     <input type="hidden" name="quantity" value="1" id="product_quantity">
-                                    <h3 class="product-name"><a class="product-link"
-                                            href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
-                                    </h3>
-                                    <!-- This is server side code. User can not modify it. -->
+                                        <h3 style="max-width: 350px; text-align: center; display: flex; justify-content: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="product-name">
+                                            <a class="product-link" href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                                {{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}
+                                            </a>
+                                        </h3>
+
+                                        <!-- This is server side code. User can not modify it. -->
                                     {!! productReview($product->id) !!}
                                     <div class="product-price">
                                         <span class="regular-price">
@@ -275,8 +285,8 @@
                                             {{ currencyConverter($product->Discount_Price) }}</span>
                                     </div>
                                     <a href="javascript:void(0)" title="{{ __('Add To Cart') }}"
-                                        class="add-cart addCart"
-                                        data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                       class="add-cart addCart"
+                                       data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                             class="icon fas fa-plus-circle"></i></a>
                                 </div>
                             </div>
@@ -285,7 +295,8 @@
                 </div>
             @endif
             @if ($allsettings['best_selling'] == ACTIVE)
-                <div class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == ACTIVE ? 'show active' : '' }}"
+                <div
+                    class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == ACTIVE ? 'show active' : '' }}"
                     id="BESTSELLING" role="tabpanel" aria-labelledby="BESTSELLING-tab">
                     <div class="recommend-product-slide owl-carousel owl-theme ">
 
@@ -294,8 +305,9 @@
                                 <div class="product-top">
                                     <a href="{{ route('single.product', $product->en_Product_Slug) }}"><img
                                             class="product-thumbnal"
+                                            style="object-fit: cover;height: 250px;width: 250px;"
                                             src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                            alt="{{ __('product') }}" /></a>
+                                            alt="{{ __('product') }}"/></a>
                                     <div class="product-flags">
                                         @if ($product->ItemTag)
                                             <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -308,14 +320,14 @@
                                     <ul class="prdouct-btn-wrapper">
                                         <li class="single-product-btn">
                                             <a class="product-btn CompareList"
-                                                data-id="{{ $product->id }}"
-                                                title="{{ __('Add To Compare') }}"><i
+                                               data-id="{{ $product->id }}"
+                                               title="{{ __('Add To Compare') }}"><i
                                                     class="icon flaticon-bar-chart"></i></a>
                                         </li>
                                         <li class="single-product-btn">
                                             <a class="product-btn MyWishList"
-                                                data-id="{{ $product->id }}"
-                                                title="{{ __('Add To Wishlist') }}"><i
+                                               data-id="{{ $product->id }}"
+                                               title="{{ __('Add To Wishlist') }}"><i
                                                     class="icon flaticon-like"></i></a>
                                         </li>
                                     </ul>
@@ -325,9 +337,11 @@
                                         <h4 class="product-catagory">{{ $pptb->tag }}</h4>
                                     @endforeach
                                     <input type="hidden" name="quantity" value="1" id="product_quantity">
-                                    <h3 class="product-name"><a class="product-link"
-                                            href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
-                                    </h3>
+                                        <h3 style="max-width: 350px; text-align: center; display: flex; justify-content: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="product-name">
+                                            <a class="product-link" href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                                {{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}
+                                            </a>
+                                        </h3>
                                     <!-- This is server side code. User can not modify it. -->
                                     {!! productReview($product->id) !!}
                                     <div class="product-price">
@@ -337,8 +351,8 @@
                                             {{ currencyConverter($product->Discount_Price) }}</span>
                                     </div>
                                     <a href="javascript:void(0)" title="{{ __('Add To Cart') }}"
-                                        class="add-cart addCart"
-                                        data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                       class="add-cart addCart"
+                                       data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                             class="icon fas fa-plus-circle"></i></a>
                                 </div>
                             </div>
@@ -348,7 +362,8 @@
                 </div>
             @endif
             @if ($allsettings['on_sale'] == ACTIVE)
-                <div class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == ACTIVE ? 'show active' : '' }}"
+                <div
+                    class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == ACTIVE ? 'show active' : '' }}"
                     id="ONSELL" role="tabpanel" aria-labelledby="ONSELL-tab">
                     <div class="recommend-product-slide owl-carousel owl-theme">
                         @foreach ($on_sales as $product)
@@ -356,8 +371,9 @@
                                 <div class="product-top">
                                     <a href="{{ route('single.product', $product->en_Product_Slug) }}}"><img
                                             class="product-thumbnal"
+                                            style="object-fit: cover;height: 250px;width: 250px;"
                                             src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                            alt="product" /></a>
+                                            alt="product"/></a>
                                     <div class="product-flags">
                                         @if ($product->ItemTag)
                                             <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -370,12 +386,12 @@
                                     <ul class="prdouct-btn-wrapper">
                                         <li class="single-product-btn">
                                             <a class="product-btn CompareList"
-                                                data-id="{{ $product->id }}" title="Add to compare"><i
+                                               data-id="{{ $product->id }}" title="Add to compare"><i
                                                     class="icon flaticon-bar-chart"></i></a>
                                         </li>
                                         <li class="single-product-btn">
                                             <a class="product-btn MyWishList"
-                                                data-id="{{ $product->id }}" title="Add to wishlist"><i
+                                               data-id="{{ $product->id }}" title="Add to wishlist"><i
                                                     class="icon flaticon-like"></i></a>
                                         </li>
                                     </ul>
@@ -385,9 +401,11 @@
                                         <h4 class="product-catagory">{{ $ppto->tag }}</h4>
                                     @endforeach
                                     <input type="hidden" name="quantity" value="1" id="product_quantity">
-                                    <h3 class="product-name"><a class="product-link"
-                                            href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
-                                    </h3>
+                                        <h3 style="max-width: 350px; text-align: center; display: flex; justify-content: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="product-name">
+                                            <a class="product-link" href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                                {{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}
+                                            </a>
+                                        </h3>
                                     <!-- This is server side code. User can not modify it. -->
                                     {!! productReview($product->id) !!}
                                     <div class="product-price">
@@ -397,8 +415,8 @@
                                             {{ currencyConverter($product->Discount_Price) }}</span>
                                     </div>
                                     <a href="javascript:void(0)" title="{{ __('Add To Cart') }}"
-                                        class="add-cart addCart"
-                                        data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                       class="add-cart addCart"
+                                       data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                             class="icon fas fa-plus-circle"></i></a>
                                 </div>
                             </div>
@@ -407,7 +425,8 @@
                 </div>
             @endif
             @if ($allsettings['featured_items'] == ACTIVE)
-                <div class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == INACTIVE && $allsettings['featured_items'] == ACTIVE ? 'show active' : '' }}"
+                <div
+                    class="tab-pane fade {{ $allsettings['new_arrival'] == INACTIVE && $allsettings['best_selling'] == INACTIVE && $allsettings['on_sale'] == INACTIVE && $allsettings['featured_items'] == ACTIVE ? 'show active' : '' }}"
                     id="FEATUREDITEMS" role="tabpanel" aria-labelledby="FEATUREDITEMS-tab">
                     <div class="recommend-product-slide owl-carousel owl-theme ">
                         @foreach ($featured_products as $product)
@@ -415,8 +434,9 @@
                                 <div class="product-top">
                                     <a href="{{ route('single.product', $product->en_Product_Slug) }}"><img
                                             class="product-thumbnal"
+                                            style="object-fit: cover;height: 250px;width: 250px;"
                                             src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                            alt="product" /></a>
+                                            alt="product"/></a>
                                     <div class="product-flags">
                                         @if ($product->ItemTag)
                                             <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -429,12 +449,12 @@
                                     <ul class="prdouct-btn-wrapper">
                                         <li class="single-product-btn">
                                             <a class="product-btn CompareList"
-                                                data-id="{{ $product->id }}" title="Add to compare"><i
+                                               data-id="{{ $product->id }}" title="Add to compare"><i
                                                     class="icon flaticon-bar-chart"></i></a>
                                         </li>
                                         <li class="single-product-btn">
                                             <a class="product-btn MyWishList"
-                                                data-id="{{ $product->id }}" title="Add to wishlist"><i
+                                               data-id="{{ $product->id }}" title="Add to wishlist"><i
                                                     class="icon flaticon-like"></i></a>
                                         </li>
                                     </ul>
@@ -444,9 +464,11 @@
                                         <h4 class="product-catagory">{{ $pptf->tag }}</h4>
                                     @endforeach
                                     <input type="hidden" name="quantity" value="1" id="product_quantity">
-                                    <h3 class="product-name"><a class="product-link"
-                                            href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
-                                    </h3>
+                                        <h3 style="max-width: 350px; text-align: center; display: flex; justify-content: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="product-name">
+                                            <a class="product-link" href="{{ route('single.product', $product->en_Product_Slug) }}">
+                                                {{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}
+                                            </a>
+                                        </h3>
                                     <!-- This is server side code. User can not modify it. -->
                                     {!! productReview($product->id) !!}
                                     <div class="product-price">
@@ -456,8 +478,8 @@
                                             {{ currencyConverter($product->Discount_Price) }}</span>
                                     </div>
                                     <a href="javascript:void(0)" title="{{ __('Add To Cart') }}"
-                                        class="add-cart addCart"
-                                        data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                       class="add-cart addCart"
+                                       data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                             class="icon fas fa-plus-circle"></i></a>
                                 </div>
                             </div>
@@ -470,107 +492,107 @@
 </div>
 
 <!-- testimonial-area-v2 start here  -->
-<div class="testimonial-area-v2 section section-bg-two">
-    <div class="container">
-        <div class="section-header-two text-center">
-            <h2 class="section-title">What People Are <br /> Saying About Ourself</h2>
-        </div>
-        <div class="testimonial-slide-two">
-            @foreach ($testimonial as $test)
-                <div class="single-testimonial">
-                    <div class="testimonial-top">
-                        <img class="testimonial-image" src="{{ asset(IMG_TESTIMONIAL . $test->Image) }}"
-                            alt="{{ $test->Name }}" />
-                    </div>
-                    <div class="testimonial-body">
-                        <p class="testimonial-content">
-                            {{ langConverter($test->en_Description, $test->fr_Description) }} </p>
-                        <h3 class="testimonial-title"> {{ $test->Name }} </h3>
+{{--<div class="testimonial-area-v2 section section-bg-two">--}}
+{{--    <div class="container">--}}
+{{--        <div class="section-header-two text-center">--}}
+{{--            <h2 class="section-title">What People Are <br/> Saying About Ourself</h2>--}}
+{{--        </div>--}}
+{{--        <div class="testimonial-slide-two">--}}
+{{--            @foreach ($testimonial as $test)--}}
+{{--                <div class="single-testimonial">--}}
+{{--                    <div class="testimonial-top">--}}
+{{--                        <img class="testimonial-image" src="{{ asset(IMG_TESTIMONIAL . $test->Image) }}"--}}
+{{--                             alt="{{ $test->Name }}"/>--}}
+{{--                    </div>--}}
+{{--                    <div class="testimonial-body">--}}
+{{--                        <p class="testimonial-content">--}}
+{{--                            {{ langConverter($test->en_Description, $test->fr_Description) }} </p>--}}
+{{--                        <h3 class="testimonial-title"> {{ $test->Name }} </h3>--}}
 
-                        <ul class="testimonial-review">
-                            {!! reviewStar($test->star) !!}
-                        </ul>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-<!-- testimonial-area-v2 end here  -->
+{{--                        <ul class="testimonial-review">--}}
+{{--                            {!! reviewStar($test->star) !!}--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<!-- testimonial-area-v2 end here  -->--}}
 
 <!-- image-gallery-area-v2 start here  -->
-<x-frontend.image-gallery></x-frontend.image-gallery>
+{{--<x-frontend.image-gallery></x-frontend.image-gallery>--}}
 <!-- image-gallery-area-v2 end here  -->
 
 <!-- blog-area-v2 start here  -->
-<div class="blog-area-v2 section-top section-bg-two pb-100">
-    <div class="container">
-        <div class="blog-area-top">
-            <div class="row align-items-center justify-content-between">
+{{--<div class="blog-area-v2 section-top section-bg-two pb-100">--}}
+{{--    <div class="container">--}}
+{{--        <div class="blog-area-top">--}}
+{{--            <div class="row align-items-center justify-content-between">--}}
 
-                <div class="col-lg-5">
-                    <div class="blog-top-left">
-                        <h2 class="blog-left-title">
-                            {{ langConverter(siteContentHomePage('blogspot')->en_Title, siteContentHomePage('blogspot')->fr_Title) }}
-                        </h2>
-                        <p class="blog-left-subtitle">
-                            {{ langConverter(siteContentHomePage('blogspot')->en_Description_One, siteContentHomePage('blogspot')->fr_Description_One) }}
-                        </p>
-                        <a href="{{ route('blog') }}" class="primary-btn-v2">View All Articles</a>
-                    </div>
-                </div>
-                @if ($blogs->first())
-                    @php
-                        $blog = $blogs->first();
-                    @endphp
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="single-grid-blog-v2">
-                            <div class="blog-info">
-                                <a href="{{ route('blog.details', $blog->id) }}" class="blog-category">
-                                    @foreach ($blog->tags as $Item)
-                                        @foreach ($Item->Tag as $n)
-                                            {{ $n }}
-                                        @endforeach
-                                    @endforeach
-                                </a>
-                                <h5 class="blog-date">{{ date('M d, Y', strtotime($blog->created_at)) }}</h5>
-                                <h3 class="blog-title">
-                                    <a class="blog-link" href="{{ route('blog.details', $blog->id) }}">
-                                        {{ langConverter($blog->en_Title, $blog->fr_Title) }}
-                                    </a>
-                                </h3>
-                                <a class="blog-btn" href="{{ route('blog.details', $blog->id) }}">Read
-                                    More</a>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            @foreach ($blogs->skip(1)->take(3) as $blog)
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-grid-blog-v2">
-                        <div class="blog-info">
-                            <a href="{{ route('blog.details', $blog->id) }}" class="blog-category">
-                                @foreach ($blog->tags as $Item)
-                                    @foreach ($Item->Tag as $n)
-                                        {{ $n }}
-                                    @endforeach
-                                @endforeach
-                            </a>
-                            <h5 class="blog-date">{{ date('M d, Y', strtotime($blog->created_at)) }}</h5>
-                            <h3 class="blog-title">
-                                <a class="blog-link" href="{{ route('blog.details', $blog->id) }}">
-                                    {{ langConverter($blog->en_Title, $blog->fr_Title) }}
-                                </a>
-                            </h3>
-                            <a class="blog-btn" href="{{ route('blog.details', $blog->id) }}">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
+{{--                <div class="col-lg-5">--}}
+{{--                    <div class="blog-top-left">--}}
+{{--                        <h2 class="blog-left-title">--}}
+{{--                            {{ langConverter(siteContentHomePage('blogspot')->en_Title, siteContentHomePage('blogspot')->fr_Title) }}--}}
+{{--                        </h2>--}}
+{{--                        <p class="blog-left-subtitle">--}}
+{{--                            {{ langConverter(siteContentHomePage('blogspot')->en_Description_One, siteContentHomePage('blogspot')->fr_Description_One) }}--}}
+{{--                        </p>--}}
+{{--                        <a href="{{ route('blog') }}" class="primary-btn-v2">View All Articles</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @if ($blogs->first())--}}
+{{--                    @php--}}
+{{--                        $blog = $blogs->first();--}}
+{{--                    @endphp--}}
+{{--                    <div class="col-lg-4 d-none d-lg-block">--}}
+{{--                        <div class="single-grid-blog-v2">--}}
+{{--                            <div class="blog-info">--}}
+{{--                                <a href="{{ route('blog.details', $blog->id) }}" class="blog-category">--}}
+{{--                                    @foreach ($blog->tags as $Item)--}}
+{{--                                        @foreach ($Item->Tag as $n)--}}
+{{--                                            {{ $n }}--}}
+{{--                                        @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                </a>--}}
+{{--                                <h5 class="blog-date">{{ date('M d, Y', strtotime($blog->created_at)) }}</h5>--}}
+{{--                                <h3 class="blog-title">--}}
+{{--                                    <a class="blog-link" href="{{ route('blog.details', $blog->id) }}">--}}
+{{--                                        {{ langConverter($blog->en_Title, $blog->fr_Title) }}--}}
+{{--                                    </a>--}}
+{{--                                </h3>--}}
+{{--                                <a class="blog-btn" href="{{ route('blog.details', $blog->id) }}">Read--}}
+{{--                                    More</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            @foreach ($blogs->skip(1)->take(3) as $blog)--}}
+{{--                <div class="col-lg-4 col-md-6 col-sm-6">--}}
+{{--                    <div class="single-grid-blog-v2">--}}
+{{--                        <div class="blog-info">--}}
+{{--                            <a href="{{ route('blog.details', $blog->id) }}" class="blog-category">--}}
+{{--                                @foreach ($blog->tags as $Item)--}}
+{{--                                    @foreach ($Item->Tag as $n)--}}
+{{--                                        {{ $n }}--}}
+{{--                                    @endforeach--}}
+{{--                                @endforeach--}}
+{{--                            </a>--}}
+{{--                            <h5 class="blog-date">{{ date('M d, Y', strtotime($blog->created_at)) }}</h5>--}}
+{{--                            <h3 class="blog-title">--}}
+{{--                                <a class="blog-link" href="{{ route('blog.details', $blog->id) }}">--}}
+{{--                                    {{ langConverter($blog->en_Title, $blog->fr_Title) }}--}}
+{{--                                </a>--}}
+{{--                            </h3>--}}
+{{--                            <a class="blog-btn" href="{{ route('blog.details', $blog->id) }}">Read More</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- blog-area-v2 end here  -->

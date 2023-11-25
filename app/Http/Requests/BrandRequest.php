@@ -25,7 +25,7 @@ class BrandRequest extends FormRequest
     {
         return [
             'en_brand_name'=>'required',
-            'fr_brand_name'=>'required',
+//            'fr_brand_name'=>'required',
             'brand_image'=>'required',
         ];
     }

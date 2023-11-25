@@ -71,9 +71,9 @@ class CategoryController extends Controller
             'en_Category_Name' => $request->en_category_name,
             'en_Description' => $request->en_description,
             'en_Category_Slug' => $this->slugify($request->en_category_name),
-            'fr_Category_Name' => $request->fr_category_name,
-            'fr_Description' => $request->fr_description,
-            'fr_Category_Slug' => $this->slugify($request->fr_category_name),
+            'fr_Category_Name' => $request->en_category_name,
+            'fr_Description' => $request->en_description,
+            'fr_Category_Slug' => $this->slugify($request->en_category_name),
             'Category_Icon' => $request->icon_class,
         ]);
         if ($category) {

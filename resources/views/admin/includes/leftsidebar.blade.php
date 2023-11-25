@@ -5,9 +5,10 @@
             <i class="fa fa-close"></i>
         </button>
     </div>
-    <div class="sidebar__brand">
+    <div class="sidebar__brand d-flex justify-content-center">
         <a class="" href="{{ route('admin.dashboard') }}">
-            <img class="rounded rounded-3" src="{{ asset(IMG_LOGO_PATH . $allsettings['footer_logo']) }}" alt="icon">
+            <img style="width: 100px ; height: 100px" class="rounded rounded-3"
+                 src="{{ asset(IMG_LOGO_PATH . $allsettings['footer_logo']) }}" alt="icon">
         </a>
     </div>
     <ul id="sidebar-menu" class="sidebar__menu">
@@ -182,14 +183,14 @@
                 </a>
             </li>
         @endcanany
-        @canany(['currency-list'])
-            <li class="{{ isset($menu) && $menu == 'currency' ? 'mm-active' : '' }}">
-                <a href="{{ route('admin.currency_list') }}">
-                    <i class="fa fa-dollar-sign"></i>
-                    <span>{{ __('Currency') }}</span>
-                </a>
-            </li>
-        @endcanany
+        {{--        @canany(['currency-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'currency' ? 'mm-active' : '' }}">--}}
+        {{--                <a href="{{ route('admin.currency_list') }}">--}}
+        {{--                    <i class="fa fa-dollar-sign"></i>--}}
+        {{--                    <span>{{ __('Currency') }}</span>--}}
+        {{--                </a>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
         @canany(['currency-list'])
             <li class="{{ isset($menu) && $menu == 'coupon' ? 'mm-active' : '' }}">
                 <a href="{{ route('admin.coupon') }}">
@@ -209,14 +210,14 @@
         {{--                </a>--}}
         {{--            </li>--}}
         {{--        @endcanany--}}
-        @canany(['blog-list'])
-            <li class="{{ isset($menu) && $menu == 'blog' ? 'mm-active' : '' }}">
-                <a href="{{ route('admin.blog') }}">
-                    <i class="fab fa-blogger-b"></i>
-                    <span>{{ __('Blog') }}</span>
-                </a>
-            </li>
-        @endcanany
+        {{--        @canany(['blog-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'blog' ? 'mm-active' : '' }}">--}}
+        {{--                <a href="{{ route('admin.blog') }}">--}}
+        {{--                    <i class="fab fa-blogger-b"></i>--}}
+        {{--                    <span>{{ __('Blog') }}</span>--}}
+        {{--                </a>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
         @canany(['product-create', 'product-edit'])
             <li class="{{ isset($menu) && $menu == 'tags' ? 'mm-active' : '' }}">
                 <a class="has-arrow" href="#">
@@ -239,28 +240,28 @@
                 </ul>
             </li>
         @endcanany
-        @canany(['crm-list'])
-            <li class="{{ isset($menu) && $menu == 'cms' ? 'mm-active' : '' }}">
-                <a class="has-arrow" href="#">
-                    <i class="fas fa-blog"></i>
-                    <span>{{ __('CRM') }}</span>
-                </a>
-                <ul>
-                    <li class="{{ isset($submenu) && $submenu == 'contact_us' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.contact.us.index') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Contact Us') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'subscribers' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.subscribe.index') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Subscribers') }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        @endcanany
+        {{--        @canany(['crm-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'cms' ? 'mm-active' : '' }}">--}}
+        {{--                <a class="has-arrow" href="#">--}}
+        {{--                    <i class="fas fa-blog"></i>--}}
+        {{--                    <span>{{ __('Liên hệ') }}</span>--}}
+        {{--                </a>--}}
+        {{--                <ul>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'contact_us' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.contact.us.index') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Contact Us') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'subscribers' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.subscribe.index') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Subscribers') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                </ul>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
         @canany(['user-list'])
             <li class="{{ isset($menu) && $menu == 'users' ? 'mm-active' : '' }}">
                 <a class="has-arrow" href="#">
@@ -277,70 +278,69 @@
                 </ul>
             </li>
         @endcanany
-        @canany(['cms-list'])
-            <li class="{{ isset($menu) && $menu == 'site_content' ? 'mm-active' : '' }}">
-                <a class="has-arrow" href="#">
-                    <i class="fas fa-cube"></i>
-                    <span>{{ __('CMS') }}</span>
-                </a>
-                <ul>
-                    <li class="{{ isset($submenu) && $submenu == 'general_settings' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.general.settings') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('General Settings') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'content_home' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.home.page.site.content') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Home Page') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'content_about' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.about.page.site.content') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('About Page') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'content_social_link' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.social.link') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Social Link') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'image_gallery' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.image.gallery') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Image Gallery') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'testimonial' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.testimonial') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Testimonial') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ isset($submenu) && $submenu == 'languages' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.language_list') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Languages') }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        @endcanany
-        {{--        <li class="{{ isset($menu) && $menu == 'theme_management' ? 'mm-active' : '' }}">--}}
-        {{--            <a class="has-arrow" href="#">--}}
-        {{--                <i class="fas fa-cog"></i>--}}
-        {{--                <span>{{ __('Theme Management') }}</span>--}}
-        {{--            </a>--}}
-        {{--            <ul>--}}
-        {{--                <li class="{{ isset($submenu) && $submenu == 'theme' ? 'mm-active' : '' }}">--}}
-        {{--                    <a href="{{ route('admin.theme') }}">{{ __('Select Theme') }}</a>--}}
-        {{--                </li>--}}
-        {{--            </ul>--}}
-        {{--        </li>--}}
-
+{{--        @canany(['cms-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'site_content' ? 'mm-active' : '' }}">--}}
+        {{--                <a class="has-arrow" href="#">--}}
+        {{--                    <i class="fas fa-cube"></i>--}}
+        {{--                    <span>{{ __('CMS') }}</span>--}}
+        {{--                </a>--}}
+        {{--                <ul>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'general_settings' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.general.settings') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('General Settings') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'content_home' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.home.page.site.content') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Home Page') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'content_about' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.about.page.site.content') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('About Page') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'content_social_link' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.social.link') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Social Link') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'image_gallery' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.image.gallery') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Image Gallery') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'testimonial' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.testimonial') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Testimonial') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'languages' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.language_list') }}">--}}
+        {{--                            <i class="fa fa-circle"></i>--}}
+        {{--                            <span>{{ __('Languages') }}</span>--}}
+        {{--                        </a>--}}
+        {{--                    </li>--}}
+        {{--                </ul>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
+        <li class="{{ isset($menu) && $menu == 'theme_management' ? 'mm-active' : '' }}">
+            <a class="has-arrow" href="#">
+                <i class="fas fa-cog"></i>
+                <span>{{ __('Theme Management') }}</span>
+            </a>
+            <ul>
+                <li class="{{ isset($submenu) && $submenu == 'theme' ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.theme') }}">{{ __('Select Theme') }}</a>
+                </li>
+            </ul>
+        </li>
         <li class="{{ isset($menu) && $menu == 'slider_banner' ? 'mm-active' : '' }}">
             <a class="has-arrow" href="#">
                 <i class="fas fa-list-ol"></i>

@@ -70,9 +70,9 @@ class BrandController extends Controller
         }
         $brand = Brand::create([
             'en_BrandName' => $request->en_brand_name,
-            'fr_BrandName' => $request->fr_brand_name,
+            'fr_BrandName' => $request->en_brand_name,
             'en_BrandSlug' => $this->slugify($request->en_brand_name),
-            'fr_BrandSlug' => $this->slugify($request->fr_brand_name),
+            'fr_BrandSlug' => $this->slugify($request->en_brand_name),
             'BrandImage' => $image
         ]);
         if ($brand) {

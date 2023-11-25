@@ -70,7 +70,6 @@
             </div>
         </div>
     @endif
-    <!-- Page Load Popup Modal End -->
     <div id="DoNotSubscribe" data-url="{{ route('do.not.subscribe') }}"></div>
     <div id="SubscribeStore" data-url="{{ route('admin.subscribe.store') }}"></div>
     @push('post_script')

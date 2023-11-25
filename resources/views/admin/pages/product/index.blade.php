@@ -30,17 +30,17 @@
                 <div class="customers__table">
                     <table id="ProductTable" class="row-border data-table-filter table-style">
                         <thead>
-                            <tr>
-                                <th>{{ __('#') }}</th>
-                                <th>{{ __('Image') }}</th>
-                                <th>{{ __('Product Name') }}</th>
-                                <th>{{ __('Category') }}</th>
-                                <th>{{ __('Brand') }}</th>
-                                <th>{{ __('Price') }}</th>
-                                <th>{{ __('Type') }}</th>
-                                <th>{{ __('Status') }}</th>
-                                <th>{{ __('Action') }}</th>
-                            </tr>
+                        <tr>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Image') }}</th>
+                            <th>{{ __('Product Name') }}</th>
+                            <th>{{ __('Category') }}</th>
+                            <th>{{ __('Brand') }}</th>
+                            <th>{{ __('Price') }}</th>
+                            {{--                            <th>{{ __('Type') }}</th>--}}
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Action') }}</th>
+                        </tr>
                         </thead>
                         <tbody>
                         </tbody>

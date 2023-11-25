@@ -31,10 +31,10 @@
                     data: 'Price',
                     name: 'Price'
                 },
-                {
-                    data: 'type',
-                    name: 'type'
-                },
+                // {
+                //     data: 'type',
+                //     name: 'type'
+                // },
                 {
                     data: 'Status',
                     name: 'Status'

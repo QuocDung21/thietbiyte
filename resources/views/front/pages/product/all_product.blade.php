@@ -9,7 +9,8 @@
             <div class="breadcrumb-wrap text-center">
                 <h2 class="page-title">{{ __('Product Collections') }}</h2>
                 <ul class="breadcrumb-pages">
-                    <li class="page-item"><a class="page-item-link" href="{{ route('front') }}">{{ __('Home') }}</a></li>
+                    <li class="page-item"><a class="page-item-link" href="{{ route('front') }}">{{ __('Home') }}</a>
+                    </li>
                     <li class="page-item">{{ __('Product Collections') }}</li>
                 </ul>
             </div>
@@ -35,7 +36,7 @@
                             <form>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="searchwidget" name="searchwidget"
-                                        placeholder="{{ __('Product Store') }}" />
+                                           placeholder="{{ __('Product Store') }}"/>
                                     <button type="button" class="search-btn"><i
                                             class="flaticon-search searchWidget"></i></button>
                                 </div>
@@ -49,10 +50,11 @@
                                     <div class="single-categorie">
                                         <div class="categorie-left">
                                             <input class="form-check-input CheckCategory" type="checkbox"
-                                                value="{{ $cateogories->en_Category_Name }}">
+                                                   value="{{ $cateogories->en_Category_Name }}">
                                             <label class="form-check-label">{{ $cateogories->en_Category_Name }}</label>
                                         </div>
-                                        <span class="categories-count">{{ productCategoryCount($cateogories->id) }}</span>
+                                        <span
+                                            class="categories-count">{{ productCategoryCount($cateogories->id) }}</span>
                                     </div>
                                 @endforeach
                             </div>
@@ -65,11 +67,11 @@
                                     <div class="price-wrap-left">
                                         <div class="single-price">
                                             <input type="number" class="form-control" id="minPrice" name="min_price"
-                                                placeholder="{{ __('$ Min') }}" min="1" />
+                                                   placeholder="{{ __('$ Min') }}" min="1"/>
                                         </div>
                                         <div class="single-price">
                                             <input type="number" class="form-control" id="maxPrice" name="max_price"
-                                                placeholder="{{ __('$ Max') }}" />
+                                                   placeholder="{{ __('$ Max') }}"/>
                                         </div>
                                     </div>
                                     <button type="button" class="price-submit PriceSubmit"><i
@@ -85,10 +87,10 @@
                                     <div class="single-colors">
                                         <div class="colors-left">
                                             <input style="background: {{ $color->ColorCode }}"
-                                                class="form-check-input checkColor" type="checkbox"
-                                                id="{{ $color->ColorCode }}" value="{{ $color->Name }}">
+                                                   class="form-check-input checkColor" type="checkbox"
+                                                   id="{{ $color->ColorCode }}" value="{{ $color->Name }}">
                                             <label class="form-check-label"
-                                                for="{{ $color->ColorCode }}">{{ $color->Name }}</label>
+                                                   for="{{ $color->ColorCode }}">{{ $color->Name }}</label>
                                         </div>
                                         <span class="colors-count">{{ productColorCount($color->id) }}</span>
                                     </div>
@@ -102,9 +104,9 @@
                                 @foreach ($sizes as $size)
                                     <div class="single-size">
                                         <input class="form-check-input checkSize" type="checkbox" id="{{ $size->id }}"
-                                            value="{{ $size->Size }}">
+                                               value="{{ $size->Size }}">
                                         <label class="form-check-label"
-                                            for="{{ $size->id }}">{{ $size->Size }}</label>
+                                               for="{{ $size->id }}">{{ $size->Size }}</label>
                                     </div>
                                 @endforeach
                             </div>
@@ -117,9 +119,9 @@
                                     <div class="single-brand">
                                         <div class="brand-left">
                                             <input class="form-check-input CheckBrand" type="checkbox"
-                                                value="{{ $brand->en_BrandName }}">
+                                                   value="{{ $brand->en_BrandName }}">
                                             <label class="form-check-label"
-                                                for="Renuar">{{ $brand->en_BrandName }}</label>
+                                                   for="Renuar">{{ $brand->en_BrandName }}</label>
                                         </div>
                                         <span class="brand-count">{{ productBrandCount($brand->id) }}</span>
                                     </div>
@@ -135,21 +137,23 @@
                             <div class="col-md-3">
                                 <div class="product-section-top-left">
                                     <button class="sidebar-filter d-block d-lg-none" type="button"
-                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-                                        aria-controls="offcanvasExample">
+                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                            aria-controls="offcanvasExample">
                                         {{ __('Filter') }} <img
+                                            style="object-fit: cover"
                                             src="{{ asset('frontend/assets/images/angle-down.svg') }}"
-                                            alt="angle-down" />
+                                            alt="angle-down"/>
                                     </button>
                                     <div class="list-grid-view">
                                         <a href="{{ route('product.list.left.sidebar') }}"
-                                            class="view-btn list-view"><img class="view-icon"
-                                                src="{{ asset('frontend/assets/images/view-list.svg') }}"
-                                                alt="view-list" /></a>
+                                           class="view-btn list-view"><img class="view-icon"
+                                                                           style="object-fit: cover"
+                                                                           src="{{ asset('frontend/assets/images/view-list.svg') }}"
+                                                                           alt="view-list"/></a>
                                         <a href="{{ route('all.product') }}" class="view-btn grid-view active"><img
                                                 class="view-icon"
                                                 src="{{ asset('frontend/assets/images/view-grid.svg') }}"
-                                                alt="view-grid" /></a>
+                                                alt="view-grid"/></a>
                                     </div>
                                 </div>
                             </div>
@@ -175,12 +179,13 @@
 
                                 @foreach ($products as $product)
                                     <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
-                                                                       <div class="single-grid-product">
+                                        <div class="single-grid-product">
                                             <div class="product-top">
                                                 <a href="{{ route('single.product', $product->en_Product_Slug) }}"><img
+                                                        style="object-fit: cover"
                                                         class="product-thumbnal"
                                                         src="{{ asset(ProductImage() . $product->Primary_Image) }}"
-                                                        alt="product" /></a>
+                                                        alt="product"/></a>
                                                 <div class="product-flags">
                                                     @if ($product->ItemTag)
                                                         <span class="product-flag sale">{{ $product->ItemTag }}</span>
@@ -193,14 +198,14 @@
                                                 <ul class="prdouct-btn-wrapper">
                                                     <li class="single-product-btn">
                                                         <a class="product-btn CompareList"
-                                                            data-id="{{ $product->id }}"
-                                                            title="{{ __('Add To Compare') }}"><i
+                                                           data-id="{{ $product->id }}"
+                                                           title="{{ __('Add To Compare') }}"><i
                                                                 class="icon flaticon-bar-chart"></i></a>
                                                     </li>
                                                     <li class="single-product-btn">
                                                         <a class="product-btn MyWishList"
-                                                            data-id="{{ $product->id }}"
-                                                            title="{{ __('Add To Wishlist') }}"><i
+                                                           data-id="{{ $product->id }}"
+                                                           title="{{ __('Add To Wishlist') }}"><i
                                                                 class="icon flaticon-like"></i></a>
                                                     </li>
                                                 </ul>
@@ -210,9 +215,9 @@
                                                     <h4 class="product-catagory">{{ $ppt->tag }}</h4>
                                                 @endforeach
                                                 <input type="hidden" name="quantity" value="1"
-                                                    id="product_quantity">
+                                                       id="product_quantity">
                                                 <h3 class="product-name"><a class="product-link"
-                                                        href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
+                                                                            href="{{ route('single.product', $product->en_Product_Slug) }}">{{ langConverter($product->en_Product_Name, $product->fr_Product_Name) }}</a>
                                                 </h3>
                                                 <!-- This is server side code. User can not modify it. -->
                                                 {!! productReview($product->id) !!}
@@ -234,7 +239,7 @@
                                                 {{-- </div> --}}
                                                 {{-- </div> --}}
                                                 <input type="hidden" name="quantity" value="1"
-                                                    id="product_quantity">
+                                                       id="product_quantity">
                                                 {{-- <ul class="size-switch"> --}}
                                                 {{-- @foreach ($product->sizes as $item) --}}
                                                 {{-- <input type="hidden"  class="sizeValue" name="productSize" value="{{$item->Size}}"> --}}
@@ -242,8 +247,8 @@
                                                 {{-- @endforeach --}}
                                                 {{-- </ul> --}}
                                                 <a href="javascript:void(0)" title="{{ __('Add to cart') }}"
-                                                    class="add-cart addCart"
-                                                    data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
+                                                   class="add-cart addCart"
+                                                   data-id="{{ $product->id }}">{{ __('Add To Cart') }} <i
                                                         class="icon fas fa-plus-circle"></i></a>
                                             </div>
                                         </div>
@@ -276,7 +281,7 @@
                     <form action="#">
                         <div class="form-group">
                             <input type="text" class="form-control bg-color" id="searchWidgetMobile"
-                                name="searchWidgetMobile" placeholder="{{ __('Product Store') }}" />
+                                   name="searchWidgetMobile" placeholder="{{ __('Product Store') }}"/>
                             <button type="button" class="search-btn searchWidgetMobile"><i
                                     class="flaticon-search"></i></button>
                         </div>
@@ -289,7 +294,7 @@
                             <div class="single-categorie">
                                 <div class="categorie-left">
                                     <input class="form-check-input CheckCategoryMobile" type="checkbox"
-                                        value="{{ $cateogories->en_Category_Name }}">
+                                           value="{{ $cateogories->en_Category_Name }}">
                                     <label class="form-check-label">{{ $cateogories->en_Category_Name }}</label>
                                 </div>
                                 <span class="categories-count">{{ productCategoryCount($cateogories->id) }}</span>
@@ -304,11 +309,11 @@
                             <div class="price-wrap-left">
                                 <div class="single-price">
                                     <input type="number" class="form-control" id="minPriceMobile" name="minprice1"
-                                        placeholder="{{ __('$ Min') }}" />
+                                           placeholder="{{ __('$ Min') }}"/>
                                 </div>
                                 <div class="single-price">
                                     <input type="number" class="form-control" id="maxPriceMobile" name="maxprice1"
-                                        placeholder="{{ __('$ Max') }}" />
+                                           placeholder="{{ __('$ Max') }}"/>
                                 </div>
                             </div>
                             <button type="button" class="price-submit PriceSubmitMobile"><i
@@ -323,10 +328,10 @@
                             <div class="single-colors">
                                 <div class="colors-left">
                                     <input style="background: {{ $color->ColorCode }}"
-                                        class="form-check-input checkColorMobile" type="checkbox"
-                                        id="{{ $color->ColorCode }}" value="{{ $color->Name }}">
+                                           class="form-check-input checkColorMobile" type="checkbox"
+                                           id="{{ $color->ColorCode }}" value="{{ $color->Name }}">
                                     <label class="form-check-label"
-                                        for="{{ $color->ColorCode }}">{{ $color->Name }}</label>
+                                           for="{{ $color->ColorCode }}">{{ $color->Name }}</label>
                                 </div>
                                 <span class="colors-count">{{ productColorCount($color->id) }}</span>
                             </div>
@@ -340,7 +345,7 @@
                         @foreach ($sizes as $size)
                             <div class="single-size">
                                 <input class="form-check-input checkSizeMobile" type="checkbox" id="{{ $size->id }}"
-                                    value="{{ $size->Size }}">
+                                       value="{{ $size->Size }}">
                                 <label class="form-check-label" for="{{ $size->id }}">{{ $size->Size }}</label>
                             </div>
                         @endforeach
@@ -354,7 +359,7 @@
                             <div class="single-brand">
                                 <div class="brand-left">
                                     <input class="form-check-input CheckBrandMobile" type="checkbox"
-                                        value="{{ $brand->en_BrandName }}">
+                                           value="{{ $brand->en_BrandName }}">
                                     <label class="form-check-label" for="Renuar">{{ $brand->en_BrandName }}</label>
                                 </div>
                                 <span class="brand-count">{{ productBrandCount($brand->id) }}</span>

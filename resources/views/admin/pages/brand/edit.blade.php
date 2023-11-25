@@ -25,25 +25,33 @@
             <div class="gallery__area bg-style">
                 <div class="gallery__content">
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
+                        <div class="tab-pane fade show active" id="nav-one" role="tabpanel"
+                             aria-labelledby="nav-one-tab">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-vertical__item bg-style">
-                                        <form enctype="multipart/form-data" method="POST" action="{{route('admin.brand.update')}}">
+                                        <form enctype="multipart/form-data" method="POST"
+                                              action="{{route('admin.brand.update')}}">
                                             @csrf
                                             <input type="hidden" name="id" id="id" value="{{$edit->id}}">
                                             <div class="input__group mb-25">
-                                                 <label>{{ __('Brand Name ' . langString('en')) }}</label>
-                                                <input type="text" class="form-control" id="en_brand_name"  name="en_brand_name" value="{{$edit->en_BrandName}}" placeholder="Name (English)">
+                                                <label>{{ __('Brand Name') }}</label>
+                                                <input type="text" class="form-control" id="en_brand_name"
+                                                       name="en_brand_name" value="{{$edit->en_BrandName}}"
+                                                      >
+                                            </div>
+                                            <div class="input__group mb-25 d-none">
+                                                <label>{{ __('Brand Name ' . langString('fr')) }}</label>
+                                                <input type="text" class="form-control" id="fr_brand_name"
+                                                       name="fr_brand_name" value="{{$edit->fr_BrandName}}"
+                                                       placeholder="Name (Arabic)">
                                             </div>
                                             <div class="input__group mb-25">
-                                                 <label>{{ __('Brand Name ' . langString('fr')) }}</label>
-                                                <input type="text" class="form-control" id="fr_brand_name"  name="fr_brand_name" value="{{$edit->fr_BrandName}}" placeholder="Name (Arabic)">
-                                            </div>
-                                            <div class="input__group mb-25">
-                                                <label for="exampleInputEmail1">{{ __('Brand Image')}}</label>
-                                                <input type="file" class="form-control putImage2"  name="brand_image" id="brand_image">
-                                                <img   class="admin_image" src="{{asset(BrandImage().$edit->BrandImage)}}" id="target2"/>
+                                                <label for="exampleInputEmail1">{{ __('Image')}}</label>
+                                                <input type="file" class="form-control putImage2" name="brand_image"
+                                                       id="brand_image">
+                                                <img class="admin_image" src="{{asset(BrandImage().$edit->BrandImage)}}"
+                                                     id="target2"/>
                                             </div>
                                             <div class="input__button">
                                                 <button type="submit" class="btn btn-blue">{{ __('Edit')}}</button>

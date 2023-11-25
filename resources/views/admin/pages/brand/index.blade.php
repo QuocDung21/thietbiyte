@@ -34,8 +34,8 @@
                         <thead>
                             <tr>
                                 <th>{{ __('Brand Name') }}</th>
-                                <th>{{ __('Brand Slug') }}</th>
-                                <th>{{ __('Brand Image') }}</th>
+                                <th>{{ __('Slug') }}</th>
+                                <th>{{ __('Image') }}</th>
                                 <th>{{ __('Status') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
