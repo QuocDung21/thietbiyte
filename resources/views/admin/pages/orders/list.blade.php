@@ -29,19 +29,19 @@
                 <div class="customers__table">
                     <table id="AdvertiseTable" class="row-border data-table-filter table-style">
                         <thead>
-                            <tr>
-                                <th>{{ __('SL') }}</th>
-                                <th>{{ __('Id') }}</th>
-                                <th>{{ __('User') }}</th>
-                                <th>{{ __('Products') }}</th>
-                                <th>{{ __('Types') }}</th>
-                                <th>{{ __('Total Amount') }}</th>
-                                <th>{{ __('Coupon Code') }}</th>
-                                <th>{{ __('Payment Method') }}</th>
-                                <th>{{ __('Digital Goods') }}</th>
-                                <th>{{ __('Status') }}</th>
-                                <th>{{ __('Action') }}</th>
-                            </tr>
+                        <tr>
+                            <th>{{ __('SL') }}</th>
+                            <th>{{ __('Id') }}</th>
+                            <th>{{ __('User') }}</th>
+                            <th>{{ __('Products') }}</th>
+                            {{--                            <th>{{ __('Types') }}</th>--}}
+                            <th>{{ __('Total Amount') }}</th>
+                            <th>{{ __('Coupon Code') }}</th>
+                            <th>{{ __('Payment Method') }}</th>
+                            {{--                            <th>{{ __('Digital Goods') }}</th>--}}
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Action') }}</th>
+                        </tr>
                         </thead>
                         <tbody>
                         </tbody>
@@ -53,7 +53,7 @@
 
     <!--  modal -->
     <div class="modal fade bd-example-modal-lg" id="dataModal" tabindex="-1" role="dialog"
-        aria-labelledby="invoiceModalTitle" aria-hidden="true">
+         aria-labelledby="invoiceModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
             </div>

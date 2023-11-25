@@ -11,9 +11,9 @@
                 <div class="col-md-12 col-lg-6">
                     <div class="thankyou-content text-center">
                         <img src="{{asset('frontend/assets/images/thankyou-img.png')}}" alt="img">
-                        <h2>{{__('Thank you for your order!')}}</h2>
-                        <p>{{__('Your order has been placed and will be processed as soon as possible. You will be receiving an email shortly with confirmation of your order.')}}</p>
-                        <a href="{{route('all.product')}}" class="primary-btn">{{__('View our products again')}}</a>
+                        <h2>{{__('Cảm ơn bạn đã đặt hàng!')}}</h2>
+                        <p>{{__('Đơn đặt hàng của bạn đã được đặt và sẽ được xử lý ngay lập tức. Bạn sẽ nhận được một email xác nhận đơn hàng trong thời gian sớm nhất.')}}</p>
+                        <a href="{{route('all.product')}}" class="primary-btn">{{__('Xem lại sản phẩm của chúng tôi')}}</a>
                     </div>
 
                 </div>

@@ -278,7 +278,7 @@
                 </ul>
             </li>
         @endcanany
-{{--        @canany(['cms-list'])--}}
+        {{--        @canany(['cms-list'])--}}
         {{--            <li class="{{ isset($menu) && $menu == 'site_content' ? 'mm-active' : '' }}">--}}
         {{--                <a class="has-arrow" href="#">--}}
         {{--                    <i class="fas fa-cube"></i>--}}
@@ -330,17 +330,17 @@
         {{--                </ul>--}}
         {{--            </li>--}}
         {{--        @endcanany--}}
-        <li class="{{ isset($menu) && $menu == 'theme_management' ? 'mm-active' : '' }}">
-            <a class="has-arrow" href="#">
-                <i class="fas fa-cog"></i>
-                <span>{{ __('Theme Management') }}</span>
-            </a>
-            <ul>
-                <li class="{{ isset($submenu) && $submenu == 'theme' ? 'mm-active' : '' }}">
-                    <a href="{{ route('admin.theme') }}">{{ __('Select Theme') }}</a>
-                </li>
-            </ul>
-        </li>
+        {{--        <li class="{{ isset($menu) && $menu == 'theme_management' ? 'mm-active' : '' }}">--}}
+        {{--            <a class="has-arrow" href="#">--}}
+        {{--                <i class="fas fa-cog"></i>--}}
+        {{--                <span>{{ __('Theme Management') }}</span>--}}
+        {{--            </a>--}}
+        {{--            <ul>--}}
+        {{--                <li class="{{ isset($submenu) && $submenu == 'theme' ? 'mm-active' : '' }}">--}}
+        {{--                    <a href="{{ route('admin.theme') }}">{{ __('Select Theme') }}</a>--}}
+        {{--                </li>--}}
+        {{--            </ul>--}}
+        {{--        </li>--}}
         <li class="{{ isset($menu) && $menu == 'slider_banner' ? 'mm-active' : '' }}">
             <a class="has-arrow" href="#">
                 <i class="fas fa-list-ol"></i>
@@ -493,14 +493,14 @@
         {{--                </a>--}}
         {{--            </li>--}}
         {{--        @endcanany--}}
-        @canany(['payment-gateway-list'])
-            <li class="{{ isset($menu) && $menu == 'payment' ? 'mm-active' : '' }}">
-                <a href="{{ route('admin.payment_gateway_list') }}">
-                    <i class="fa fa-money-bill"></i>
-                    <span>{{ __('Payment Gateway') }}</span>
-                </a>
-            </li>
-        @endcanany
+        {{--        @canany(['payment-gateway-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'payment' ? 'mm-active' : '' }}">--}}
+        {{--                <a href="{{ route('admin.payment_gateway_list') }}">--}}
+        {{--                    <i class="fa fa-money-bill"></i>--}}
+        {{--                    <span>{{ __('Payment Gateway') }}</span>--}}
+        {{--                </a>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
         {{--        @canany(['cms-list'])--}}
         {{--            <li class="{{ isset($menu) && $menu == 'company' ? 'mm-active' : '' }}">--}}
         {{--                <a class="has-arrow" href="#">--}}

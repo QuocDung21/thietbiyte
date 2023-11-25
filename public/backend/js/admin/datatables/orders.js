@@ -23,10 +23,10 @@
                     data: 'Products',
                     name: 'Products'
                 },
-                {
-                    data: 'types',
-                    name: 'types'
-                },
+                // {
+                //     data: 'types',
+                //     name: 'types'
+                // },
                 {
                     data: 'GrandTotal',
                     name: 'GrandTotal'
@@ -39,10 +39,10 @@
                     data: 'Payment_Method',
                     name: 'Payment_Method'
                 },
-                {
-                    data: 'digital_goods',
-                    name: 'digital_goods'
-                },
+                // {
+                //     data: 'digital_goods',
+                //     name: 'digital_goods'
+                // },
                 {
                     data: 'Status',
                     name: 'Status'
@@ -80,6 +80,7 @@ function orderDetails(id) {
         }
     );
 }
+
 function orderStatusEdit(id) {
     $.post(
         ROUTE_ORDER_STATUS_EDIT,

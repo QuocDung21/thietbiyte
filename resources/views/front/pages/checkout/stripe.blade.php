@@ -52,7 +52,7 @@
 
                                             <div class="form-group form-check terms-agree">
                                                 <input type="checkbox" class="form-check-input" id="agree" required/>
-                                                <label class="form-check-label" for="agree">{{__('By clicking the button you agree to our')}} <a href="{{route('terms.conditions')}}">{{__('Terms & Conditions')}}</a></label>
+                                                <label class="form-check-label" for="agree">{{__('Bằng cách nhấp vào nút, bạn đồng ý với chúng tôi')}} <a href="{{route('terms.conditions')}}">{{__('Terms & Conditions')}}</a></label>
                                             </div>
                                             <button type="submit" id="payButton" class="checkout-btn form-btn">{{__('Place Order')}}</button>
                                         </div>

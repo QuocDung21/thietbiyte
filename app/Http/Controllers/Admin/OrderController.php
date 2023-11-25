@@ -43,7 +43,7 @@ class OrderController extends Controller
                     return $data->user != null ? $data->user->name : __('Guest User');
                 })
                 ->addColumn('GrandTotal', function ($data) {
-                    return '$' . $data->Grand_Total;
+                    return $data->Grand_Total . ' đ' ;
                 })
                 ->addColumn('Products', function ($data) {
                     $html = '';
@@ -84,21 +84,21 @@ class OrderController extends Controller
                 ->addColumn('Status', function ($data) {
                     $html = '';
                     if ($data->Order_Status == ORDER_PENDING) {
-                        $html = __('<span class="status bg-primary-light-varient">Pending</span>');
+                        $html = __('<span class="status bg-primary-light-varient">Đang chờ xử lý</span>');
                     } elseif ($data->Order_Status == ORDER_PROCESSING) {
-                        $html = __('<span class="status bg-secondary-light-varient">Processing</span>');
+                        $html = __('<span class="status bg-secondary-light-varient">Đang xử lý</span>');
                     } elseif ($data->Order_Status == ORDER_SHIPPED) {
-                        $html = __('<span class="status bg-info-light-varient">Shipped</span>');
+                        $html = __('<span class="status bg-info-light-varient">Đã gửi hàng</span>');
                     } elseif ($data->Order_Status == ORDER_DELIVERED) {
-                        $html = __('<span class="status bg-success-light-varient">Delivered</span>');
+                        $html = __('<span class="status bg-success-light-varient">Đã giao hàng</span>');
                     } elseif ($data->Order_Status == ORDER_CANCELLED) {
-                        $html = __('<span class="status bg-danger-light-varient">Canceled</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Đã hủy</span>');
                     } elseif ($data->Order_Status == ORDER_RETURN) {
-                        $html = __('<span class="status bg-danger-light-varient">Returned</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Đã trả hàng</span>');
                     } elseif ($data->Order_Status == ORDER_NOT_PAYMENT_YET) {
-                        $html = __('<span class="status bg-warning-light-varient">Not Payment Yet</span>');
+                        $html = __('<span class="status bg-warning-light-varient">Chưa thanh toán</span>');
                     } elseif ($data->Order_Status == ORDER_DELIVERED_FAILED) {
-                        $html = __('<span class="status bg-danger-light-varient">Delivery Failed</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Giao hàng thất bại</span>');
                     }
                     return $html;
                 })
@@ -194,24 +194,25 @@ class OrderController extends Controller
                 ->addColumn('status', function ($data) {
                     $html = '';
                     if ($data->Order_Status == ORDER_PENDING) {
-                        $html = __('<span class="status bg-primary-light-varient">Pending</span>');
+                        $html = __('<span class="status bg-primary-light-varient">Đang chờ xử lý</span>');
                     } elseif ($data->Order_Status == ORDER_PROCESSING) {
-                        $html = __('<span class="status bg-secondary-light-varient">Processing</span>');
+                        $html = __('<span class="status bg-secondary-light-varient">Đang xử lý</span>');
                     } elseif ($data->Order_Status == ORDER_SHIPPED) {
-                        $html = __('<span class="status bg-info-light-varient">Shipped</span>');
+                        $html = __('<span class="status bg-info-light-varient">Đã gửi hàng</span>');
                     } elseif ($data->Order_Status == ORDER_DELIVERED) {
-                        $html = __('<span class="status bg-success-light-varient">Delivered</span>');
+                        $html = __('<span class="status bg-success-light-varient">Đã giao hàng</span>');
                     } elseif ($data->Order_Status == ORDER_CANCELLED) {
-                        $html = __('<span class="status bg-danger-light-varient">Canceled</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Đã hủy</span>');
                     } elseif ($data->Order_Status == ORDER_RETURN) {
-                        $html = __('<span class="status bg-danger-light-varient">Returned</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Đã trả hàng</span>');
                     } elseif ($data->Order_Status == ORDER_NOT_PAYMENT_YET) {
-                        $html = __('<span class="status bg-warning-light-varient">Not Payment Yet</span>');
+                        $html = __('<span class="status bg-warning-light-varient">Chưa thanh toán</span>');
                     } elseif ($data->Order_Status == ORDER_DELIVERED_FAILED) {
-                        $html = __('<span class="status bg-danger-light-varient">Delivery Failed</span>');
+                        $html = __('<span class="status bg-danger-light-varient">Giao hàng thất bại</span>');
                     }
                     return $html;
                 })
+
                 ->rawColumns(['action', 'status'])
                 ->make(true);
         }
@@ -233,7 +234,7 @@ class OrderController extends Controller
 
     public function digitalProductMail(Request $request)
     {
-        $data['userName'] = 'John Doe';
+        $data['userName'] = 'Hiếu';
         $data['userEmail'] = $request->mail_address;
         $data['data'] = $request->link;
         $data['subject'] = __('Digital Product Send');

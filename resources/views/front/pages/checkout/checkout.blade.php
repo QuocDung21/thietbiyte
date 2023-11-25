@@ -33,9 +33,9 @@
                                         <div class="col-lg-12 mb-3">
                                             <div
                                                 class="checkout-page-login-box d-flex justify-content-between align-items-center mb-30">
-                                                <h2 class="mb-0 text-capitalize fw-bold">Returning buyer? Please login:</h2>
+                                                <h2 class="mb-0 text-capitalize fw-bold">Đăng nhập để mua hàng:</h2>
                                                 <button type="button" class="primary-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#loginModal">Login</button>
+                                                    data-bs-target="#loginModal">Đăng nhập</button>
                                             </div>
                                         </div>
                                     @endif
