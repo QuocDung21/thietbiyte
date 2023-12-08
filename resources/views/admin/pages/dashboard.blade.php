@@ -6,14 +6,15 @@
             <div class="breadcrumb__content">
                 <div class="breadcrumb__content__left">
                     <div class="breadcrumb__title">
-                        <h2>{{__('Dashboard')}}</h2>
+                        <h2>{{__('Bảng điều khiển')}}</h2>
                     </div>
                 </div>
                 <div class="breadcrumb__content__right">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Home')}}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{__('Dashboard')}}</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Trang chủ')}}</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">{{__('Bảng điều khiển')}}</li>
                         </ul>
                     </nav>
                 </div>
@@ -21,13 +22,13 @@
         </div>
     </div>
     <div class="row">
-        <!-- Statistics -->
+        <!-- Thống kê -->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
-                    <h2>{{__('Total Sale')}}</h2>
+                    <h2>{{__('Tổng doanh số bán hàng')}}</h2>
                     <div class="status__box__data">
-                        <h2>{{$totalProductSale}}</h2>
+                        <h2>{{ number_format($totalProductSale) }}</h2>
                     </div>
                 </div>
                 <div class="item__right">
@@ -40,7 +41,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
-                    <h2>{{__('Today Order')}}</h2>
+                    <h2>{{__('Đơn hàng hôm nay')}}</h2>
                     <div class="status__box__data">
                         <h2>{{ $todayProductOrder }}</h2>
                     </div>
@@ -55,9 +56,12 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
-                    <h2>{{\Carbon\Carbon::now()->format('F').__(' Sale')}}</h2>
+                    @php
+                        $currentMonth = \Carbon\Carbon::now()->month;
+                    @endphp
+                    <h2>{{__('Giảm giá tháng ') . $currentMonth }}</h2>
                     <div class="status__box__data">
-                        <h2>{{$totalCurrentMonthProductSale}}</h2>
+                        <h2>{{ number_format($totalCurrentMonthProductSale) }}</h2>
                     </div>
                 </div>
                 <div class="item__right">
@@ -70,9 +74,9 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
-                    <h2>{{ __('Yearly Sale') }}</h2>
+                    <h2>{{__('Doanh số năm')}}</h2>
                     <div class="status__box__data">
-                        <h2>{{$totalLatYearProductSale}}</h2>
+                        <h2>{{ number_format($totalLatYearProductSale) }}</h2>
                     </div>
                 </div>
                 <div class="item__right">
@@ -82,134 +86,6 @@
                 </div>
             </div>
         </div>
-        <!-- Statistics -->
-
-        <!-- Orders -->
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Orders')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{$totalOrders}}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-shopping-cart fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Pending Orders')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{ $pendingOrders }}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-shopping-cart fa-2x text-success"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__(' Delivered Orders')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{$deliveredOrders}}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-shopping-cart fa-2x text-info"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{ __('Returned Orders') }}</h2>
-                    <div class="status__box__data">
-                        <h2>{{$returnedOrders}}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-shopping-cart fa-2x text-warning"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Orders -->
-
-        <!-- Earnings -->
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Total Earning')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{__('$').$totalEarning}}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-money-bill-wave fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Today Earning')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{ __('$').$todayEarning }}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-money-bill-wave fa-2x text-success"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{\Carbon\Carbon::now()->format('F').__(' Earning')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{ __('$').$monthEarning }}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-money-bill-wave fa-2x text-info"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{ __('Yearly Earning') }}</h2>
-                    <div class="status__box__data">
-                        <h2>{{__('$').$yearEarning}}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-shopping-cart fa-2x text-warning"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Earnings -->
-
         <!-- Products -->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
@@ -279,7 +155,7 @@
                 <div class="item__left">
                     <h2>{{__('Online Transactions')}}</h2>
                     <div class="status__box__data">
-                        <h2>{{ __('$').$totalOnlineTransaction }}</h2>
+                        <h2>{{ $totalOnlineTransaction . (" đ") }}</h2>
                     </div>
                 </div>
                 <div class="item__right">
@@ -289,27 +165,27 @@
                 </div>
             </div>
         </div>
-{{--        <div class="col-lg-3 col-md-6 col-sm-6">--}}
-        {{--            <div class="status__box-3 bg-style">--}}
-        {{--                <div class="item__left">--}}
-        {{--                    <h2>{{__('Paypal Transactions')}}</h2>--}}
-        {{--                    <div class="status__box__data">--}}
-        {{--                        <h2>{{  __('$').$totalPaypalTransaction }}</h2>--}}
+        {{--                <div class="col-lg-3 col-md-6 col-sm-6">--}}
+        {{--                    <div class="status__box-3 bg-style">--}}
+        {{--                        <div class="item__left">--}}
+        {{--                            <h2>{{__('Paypal Transactions')}}</h2>--}}
+        {{--                            <div class="status__box__data">--}}
+        {{--                                <h2>{{  __('$').$totalPaypalTransaction }}</h2>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
+        {{--                        <div class="item__right">--}}
+        {{--                            <div class="status__box__img">--}}
+        {{--                                <i class="fas fa-dollar-sign fa-2x text-success"></i>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
         {{--                    </div>--}}
         {{--                </div>--}}
-        {{--                <div class="item__right">--}}
-        {{--                    <div class="status__box__img">--}}
-        {{--                        <i class="fas fa-dollar-sign fa-2x text-success"></i>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
                     <h2>{{__('Stripe Transactions')}}</h2>
                     <div class="status__box__data">
-                        <h2>{{ __('$').$totalStripeTransaction }}</h2>
+                        <h2>{{ $totalStripeTransaction . (" đ") }}</h2>
                     </div>
                 </div>
                 <div class="item__right">
@@ -336,21 +212,21 @@
         {{--        </div>--}}
         <!-- Transactions -->
 
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Bank Transactions')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{ __('$').$totalOnlineTransaction }}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-dollar-sign fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--        <div class="col-lg-3 col-md-6 col-sm-6">--}}
+        {{--            <div class="status__box-3 bg-style">--}}
+        {{--                <div class="item__left">--}}
+        {{--                    <h2>{{__('Bank Transactions')}}</h2>--}}
+        {{--                    <div class="status__box__data">--}}
+        {{--                        <h2>{{ $totalOnlineTransaction  . (" đ") }}</h2>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--                <div class="item__right">--}}
+        {{--                    <div class="status__box__img">--}}
+        {{--                        <i class="fas fa-dollar-sign fa-2x"></i>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
@@ -366,21 +242,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="status__box-3 bg-style">
-                <div class="item__left">
-                    <h2>{{__('Blogs')}}</h2>
-                    <div class="status__box__data">
-                        <h2>{{ $getTotalBlogs }}</h2>
-                    </div>
-                </div>
-                <div class="item__right">
-                    <div class="status__box__img">
-                        <i class="fas fa-blog fa-2x text-info"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--        <div class="col-lg-3 col-md-6 col-sm-6">--}}
+        {{--            <div class="status__box-3 bg-style">--}}
+        {{--                <div class="item__left">--}}
+        {{--                    <h2>{{__('Blogs')}}</h2>--}}
+        {{--                    <div class="status__box__data">--}}
+        {{--                        <h2>{{ $getTotalBlogs }}</h2>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--                <div class="item__right">--}}
+        {{--                    <div class="status__box__img">--}}
+        {{--                        <i class="fas fa-blog fa-2x text-info"></i>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="status__box-3 bg-style">
                 <div class="item__left">
@@ -399,55 +275,55 @@
 
     </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <div class="card transactions-chart-card">
-                <div class="item-top card-header mb-30">
-                    <h2 class="card-title">{{ __('Transactions') }}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="earnSource"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="card sales-ratio-chart-card">
-                <div class="item-top card-header mb-30">
-                    <h2 class="card-title">{{ __('Sales Ratio') }}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="salesRatio"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="card">
-                <div class="item-top card-header mb-30">
-                    <h2 class="card-title">{{\Carbon\Carbon::now()->format('F').__(' Sales')}}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="multipleLineChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="card">
-                <div class="item-top card-header mb-30">
-                    <h2 class="card-title">{{\Carbon\Carbon::now()->format('F').__(' Earnings')}}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="multipleLineChart2"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+    {{--    <div class="row">--}}
+    {{--        <div class="col-md-6 mb-3">--}}
+    {{--            <div class="card transactions-chart-card">--}}
+    {{--                <div class="item-top card-header mb-30">--}}
+    {{--                    <h2 class="card-title">{{ __('Transactions') }}</h2>--}}
+    {{--                </div>--}}
+    {{--                <div class="card-body">--}}
+    {{--                    <div class="chart-container">--}}
+    {{--                        <canvas id="earnSource"></canvas>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--        <div class="col-md-6 mb-3">--}}
+    {{--            <div class="card sales-ratio-chart-card">--}}
+    {{--                <div class="item-top card-header mb-30">--}}
+    {{--                    <h2 class="card-title">{{ __('Sales Ratio') }}</h2>--}}
+    {{--                </div>--}}
+    {{--                <div class="card-body">--}}
+    {{--                    <div class="chart-container">--}}
+    {{--                        <canvas id="salesRatio"></canvas>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--        <div class="col-md-6 mb-3">--}}
+    {{--            <div class="card">--}}
+    {{--                <div class="item-top card-header mb-30">--}}
+    {{--                    <h2 class="card-title">{{\Carbon\Carbon::now()->format('F').__(' Sales')}}</h2>--}}
+    {{--                </div>--}}
+    {{--                <div class="card-body">--}}
+    {{--                    <div class="chart-container">--}}
+    {{--                        <canvas id="multipleLineChart"></canvas>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--        <div class="col-md-6 mb-3">--}}
+    {{--            <div class="card">--}}
+    {{--                <div class="item-top card-header mb-30">--}}
+    {{--                    <h2 class="card-title">{{\Carbon\Carbon::now()->format('F').__(' Earnings')}}</h2>--}}
+    {{--                </div>--}}
+    {{--                <div class="card-body">--}}
+    {{--                    <div class="chart-container">--}}
+    {{--                        <canvas id="multipleLineChart2"></canvas>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
 
     </div>
 

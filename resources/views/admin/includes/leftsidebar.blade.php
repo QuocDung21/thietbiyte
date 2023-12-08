@@ -167,14 +167,14 @@
                 </a>
             </li>
         @endcanany
-        @canany(['tax-list'])
-            <li class="{{ isset($menu) && $menu == 'tax' ? 'mm-active' : '' }}">
-                <a href="{{ route('admin.country_taxation_list') }}">
-                    <i class="fas fa-percent"></i>
-                    <span>{{ __('Tax Settings') }}</span>
-                </a>
-            </li>
-        @endcanany
+        {{--        @canany(['tax-list'])--}}
+        {{--            <li class="{{ isset($menu) && $menu == 'tax' ? 'mm-active' : '' }}">--}}
+        {{--                <a href="{{ route('admin.country_taxation_list') }}">--}}
+        {{--                    <i class="fas fa-percent"></i>--}}
+        {{--                    <span>{{ __('Tax Settings') }}</span>--}}
+        {{--                </a>--}}
+        {{--            </li>--}}
+        {{--        @endcanany--}}
         @canany(['delivery-charge-list'])
             <li class="{{ isset($menu) && $menu == 'delivery_charge' ? 'mm-active' : '' }}">
                 <a href="{{ route('admin.country_dc_list') }}">
@@ -341,28 +341,28 @@
         {{--                </li>--}}
         {{--            </ul>--}}
         {{--        </li>--}}
-        <li class="{{ isset($menu) && $menu == 'slider_banner' ? 'mm-active' : '' }}">
-            <a class="has-arrow" href="#">
-                <i class="fas fa-list-ol"></i>
-                <span>{{ __('Slider & Banner') }}</span>
-            </a>
-            <ul>
-                @canany(['banner-list'])
-                    <li class="{{ isset($submenu) && $submenu == 'banner' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.banner') }}">{{ __('Banner') }} ({{ __('Home two') }})</a>
-                    </li>
-                @endcanany
-                @canany(['slider-list'])
-                    <li class="{{ isset($submenu) && $submenu == 'slider' ? 'mm-active' : '' }}">
-                        <a href="{{ route('admin.slider') }}">{{ __('Slider') }} ({{ __('Home one') }})</a>
-                    </li>
-                @endcanany
-                <li class="{{ isset($submenu) && $submenu == 'special_offer' ? 'mm-active' : '' }}">
-                    <a href="{{ route('admin.theme.special.offer') }}">{{ __('Offer') }}
-                        ({{ __('Home two') }})</a>
-                </li>
-            </ul>
-        </li>
+        {{--        <li class="{{ isset($menu) && $menu == 'slider_banner' ? 'mm-active' : '' }}">--}}
+        {{--            <a class="has-arrow" href="#">--}}
+        {{--                <i class="fas fa-list-ol"></i>--}}
+        {{--                <span>{{ __('Slider & Banner') }}</span>--}}
+        {{--            </a>--}}
+        {{--            <ul>--}}
+        {{--                @canany(['banner-list'])--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'banner' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.banner') }}">{{ __('Banner') }} ({{ __('Home two') }})</a>--}}
+        {{--                    </li>--}}
+        {{--                @endcanany--}}
+        {{--                @canany(['slider-list'])--}}
+        {{--                    <li class="{{ isset($submenu) && $submenu == 'slider' ? 'mm-active' : '' }}">--}}
+        {{--                        <a href="{{ route('admin.slider') }}">{{ __('Slider') }} ({{ __('Home one') }})</a>--}}
+        {{--                    </li>--}}
+        {{--                @endcanany--}}
+        {{--                <li class="{{ isset($submenu) && $submenu == 'special_offer' ? 'mm-active' : '' }}">--}}
+        {{--                    <a href="{{ route('admin.theme.special.offer') }}">{{ __('Offer') }}--}}
+        {{--                        ({{ __('Home two') }})</a>--}}
+        {{--                </li>--}}
+        {{--            </ul>--}}
+        {{--        </li>--}}
         {{--        @canany(['cms-create', 'cms-edit'])--}}
         {{--            <li class="{{ isset($menu) && $menu == 'seo' ? 'mm-active' : '' }}">--}}
         {{--                <a class="has-arrow" href="#">--}}

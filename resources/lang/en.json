@@ -2910,7 +2910,7 @@
     "Total Earning": "Tổng thu nhập",
     "October Earning": "Thu nhập tháng 10",
     "Yearly Earning": "Thu nhập hàng năm",
-    "Online Transactions": "Giao dịch trực tuyến",
+    "Online Transactions": "Giao dịch trực tiếp",
     "Paypal Transactions": "Giao dịch qua Paypal",
     "Stripe Transactions": "Giao dịch qua Stripe",
     "Razorpay Transactions": "Giao dịch qua Razorpay",
@@ -3024,5 +3024,6 @@
     "Edit Profile": "Chỉnh sửa thông tin cá nhân",
     "Product added to wishlist successfully": "Sản phẩm được thêm vào danh sách yêu thích thành công",
     "Cash On Delivey": "Thanh toán khi nhận hàng",
-    "Cash On Delivey": "Đặt hàng thành công"
+    "Cash On Delivey": "Đặt hàng thành công",
+    "Visit Site": "Truy cập web"
 }
